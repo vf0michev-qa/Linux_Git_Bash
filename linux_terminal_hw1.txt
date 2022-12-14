@@ -1,0 +1,144 @@
+Linux terminal (GitBash) commands
+HW1
+
+1) Посмотреть текущую директорию:
+
+pwd
+
+2) Создать папку:
+
+mkdir new_folder
+
+3) Зайти в папку:
+
+cd new_folder/
+
+4) Создать 3 папки:
+
+mkdir folder1 folder2 folder3
+
+5) Зайти в любую папку:
+
+cd folder1/
+
+6) Создать 5 файлов (3 txt, 2 json):
+
+touch file1.txt file2.txt file3.txt file4.json file5.json
+
+7) Создать 3 папки:
+
+mkdir f1 f2 f3
+
+8) Вывести список содержимого папки:
+
+ls -la
+
+9) + Открыть любой txt файл:
+
+vim file1.txt
+
+10) + Написать туда что-нибудь, любой текст:
+
+Нажать клавишу "i" для редактирования файла -> написать в текстовой строке "Hello" -> Нажать клавишу "ESC" для выхода из режима редактирования
+
+vim file2.txt
+
+"i" -> Ну
+       а
+       сам
+       то -> "ESC"
+
+11) + Сохранить и выйти:
+
+Нажать ":wq" для сохранения изменений в отредактированном файле и выхода из редактора vim
+
+12) Выйти из папки на уровень выше:
+
+cd ..
+
+13) Переместить любые 2 файла, которые вы создали, в любую другую папку:
+
+cd folder1/
+mv file1.txt ../folder2/file1.txt
+
+14) Скопировать любые 2 файла, которые вы создали, в любую другую папку:
+
+cp file2.txt ../folder3/file2.txt
+
+15) Найти файл по имени:
+
+cd ..
+find . -name 'file1.txt'
+
+16) Просмотреть содержимое в реальном времени (команда grep), изучить как работает grep:
+
+grep -R 'Hello' .
+
+17) Вывести несколько первых строк из текстового файла:
+
+head -2 folder1/file2.txt
+
+18) Вывести несколько последних строк из текстового файла:
+
+tail -2 folder1/file2.txt
+
+19) Просмотреть содержимое длинного файла (команда less), изучить как работает less:
+
+less -s folder1/file2.txt
+Выход в терминал через клавишу "q"
+
+20) Вывести дату и время:
+
+date
+=========
+
+Задания со *
+
+1) Отправить HTTP-запрос 'http://162.55.220.72:5006/terminal-hw-request' на сервер:
+
+Запрос:
+
+curl 'http://162.55.220.72:5006/terminal-hw-request'
+
+Ответ сервера:
+
+{
+  "Intro": "Hello! This is your the first response from server",
+  "Tasks": {
+    "Task_1": "Send the next URL in terminal: http://162.55.220.72:5005/get_method?name=(set_your_String)&age=(set_your_number)",
+    "result": [
+      "Your_String",
+      "Your_number"
+    ]
+  }
+}
+
+Новый запрос:
+
+curl 'http://162.55.220.72:5005/get_method?name=(Viktor)&age=(37)
+
+Ответ сервера:
+[
+ "(Viktor)",
+  "(37)"
+]
+
+2) Написать скрипт, который выполнит автоматически пункты д/з 3, 4, 5, 6, 7, 8, 13:
+
+Тело скрипта:
+
+#!/bin/bash
+cd /c/Users/sting/qa_training/
+mkdir scr_new_folder
+cd scr_new_folder
+mkdir scr_folder1 scr_folder2 scr_folder3
+cd scr_folder1/
+touch scr_file1.txt scr_file2.txt scr_file3.txt scr_file4.json scr_file5.json
+mkdir scr_f1 scr_f2 scr_f3
+ls -la
+mv scr_file1.txt ../scr_folder2/scr_file1.txt
+
+Запуск скрипта в терминале:
+
+cd abc (переходим в директорию, где находится скрипт)
+./linux_console_hw1_script.sh (запускаем скрипт, указывая его имя)
